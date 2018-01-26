@@ -16,15 +16,16 @@ public class JsLoader {
 
     private String url;
 
-    private int defauleImg;
+    private int defaultImg;
 
     private int errorImg;
 
-    private int scrolType;
+    private int scaleType;
 
     private static JsLoader instance = new JsLoader();
 
     private JsLoader() {
+
     }
 
     public static JsLoader with(Context context) {
@@ -35,6 +36,7 @@ public class JsLoader {
     public Context getContext() {
         return context;
     }
+
 
     public void setContext(Context context) {
         this.context = context;
@@ -57,11 +59,11 @@ public class JsLoader {
     }
 
     public int getDefauleImg() {
-        return defauleImg;
+        return defaultImg;
     }
 
-    public void setDefauleImg(int defauleImg) {
-        this.defauleImg = defauleImg;
+    public void setDefauleImg(int defaultImg) {
+        this.defaultImg = defaultImg;
     }
 
     public int getErrorImg() {
@@ -73,10 +75,11 @@ public class JsLoader {
     }
 
     public int getScrolType() {
-        return scrolType;
+        return scaleType;
     }
 
-    public void setScrolType(int scrolType) {
-        this.scrolType = scrolType;
+    public void setScrolType(int scaleType) {
+        this.scaleType = scaleType;
     }
+
 }
