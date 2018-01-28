@@ -33,6 +33,7 @@ public class JsLoader {
         return instance;
     }
 
+
     public Context getContext() {
         return context;
     }
