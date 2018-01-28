@@ -37,7 +37,6 @@ public class JsLoader {
         return context;
     }
 
-
     public void setContext(Context context) {
         this.context = context;
     }
