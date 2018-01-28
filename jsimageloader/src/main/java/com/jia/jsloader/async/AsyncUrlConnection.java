@@ -31,36 +31,6 @@ public class AsyncUrlConnection {
      */
     public static void getBitmap(final long saveTime, final String netUrl, final AsyncHandler asyncHandler){
 
-//        new Thread(){
-//            @Override
-//            public void run() {
-//
-//                Bitmap bitmap= null;
-//                try {
-//                    bitmap = ImageCacheUtil.getBitmapByThreeCache(saveTime,netUrl);
-//                    if(null!=bitmap){
-//                        Message msg=Message.obtain();
-//                        msg.what=BITMAP_SUCCESS;
-//                        msg.obj=bitmap;
-//                        asyncHandler.sendMessage(msg);
-//                    }else{
-//                        Message msg=Message.obtain();
-//                        msg.what=BITMAP_ERROR;
-//                        msg.obj="网络错误！";
-//                        asyncHandler.sendMessage(msg);
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                    Message msg=Message.obtain();
-//                    msg.what=BITMAP_ERROR;
-//                    msg.obj="网络错误！";
-//                    asyncHandler.sendMessage(msg);
-//                }
-//
-//
-//            }
-//        }.start();
-
         MyThreadFactory.getThreadPoolExecutor().execute(new Runnable() {
             @Override
             public void run() {
