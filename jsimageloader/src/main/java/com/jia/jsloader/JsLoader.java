@@ -1,7 +1,13 @@
 package com.jia.jsloader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.widget.ImageView;
+
+import com.jia.jsloader.async.AsyncHandler;
+import com.jia.jsloader.async.AsyncUrlConnection;
 
 /**
  * Description:
@@ -20,17 +26,76 @@ public class JsLoader {
 
     private int errorImg;
 
-    private int scaleType;
+    private long cacheTime;
 
-    private static JsLoader instance = new JsLoader();
+    private static JsLoader instance;
 
     private JsLoader() {
 
     }
 
-    public static JsLoader with(Context context) {
+
+    public static JsLoader with(@NonNull Context context) {
+        if (null == context) {
+            throw new NullPointerException();
+        }
+
+        instance = new JsLoader();
         instance.setContext(context);
         return instance;
+    }
+
+    public static JsLoader load(@NonNull String url) {
+        if (TextUtils.isEmpty(url)) {
+            throw new NullPointerException();
+        }
+        instance.setUrl(url);
+        return instance;
+    }
+
+    public static JsLoader defaultImg(int imgId) {
+        instance.setDefaultImg(imgId);
+        return instance;
+    }
+
+    public static JsLoader errorImg(int imgId) {
+        instance.setErrorImg(imgId);
+        return instance;
+    }
+
+    public static JsLoader cacheTime(long cacheTime) {
+        instance.setCacheTime(cacheTime);
+        return instance;
+    }
+
+    public static void into(@NonNull final ImageView imageView) {
+
+        if (null == imageView) {
+            throw new NullPointerException();
+        }
+
+        if (instance.getDefaultImg() != 0) {
+            imageView.setImageResource(instance.getDefaultImg());
+        }
+
+        long cacheTime = 5000;
+        if (instance.getCacheTime() != 0) {
+            cacheTime = instance.getCacheTime();
+        }
+
+        AsyncUrlConnection.getBitmap(cacheTime, instance.getUrl(), new AsyncHandler() {
+            @Override
+            public void onSuccess(Object result) {
+                imageView.setImageBitmap((Bitmap) result);
+            }
+
+            @Override
+            public void onFail(String str) {
+                if (instance.getErrorImg() != 0) {
+                    imageView.setImageResource(instance.getErrorImg());
+                }
+            }
+        });
     }
 
 
@@ -58,11 +123,11 @@ public class JsLoader {
         this.url = url;
     }
 
-    public int getDefauleImg() {
+    public int getDefaultImg() {
         return defaultImg;
     }
 
-    public void setDefauleImg(int defaultImg) {
+    public void setDefaultImg(int defaultImg) {
         this.defaultImg = defaultImg;
     }
 
@@ -74,12 +139,12 @@ public class JsLoader {
         this.errorImg = errorImg;
     }
 
-    public int getScrolType() {
-        return scaleType;
+    public long getCacheTime() {
+        return cacheTime;
     }
 
-    public void setScrolType(int scaleType) {
-        this.scaleType = scaleType;
+    public void setCacheTime(long cacheTime) {
+        this.cacheTime = cacheTime;
     }
 
 }
