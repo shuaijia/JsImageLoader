@@ -1,6 +1,8 @@
 # JsImageLoader
 使用HttpUrlConnection封装图片请求库
 
+![image](https://raw.githubusercontent.com/shuaijia/JsImageLoader/master/img/p.png)
+
 ## 使用
  
 ### 1、添依赖
