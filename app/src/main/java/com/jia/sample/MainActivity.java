@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         iv4= (ImageView) findViewById(R.id.iv4);
         iv5= (ImageView) findViewById(R.id.iv5);
 
-
         JsLoader.with(this)
                 .load("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=699359866,1092793192&fm=27&gp=0.jpg")
                 .defaultImg(R.mipmap.ic_launcher)
