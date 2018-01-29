@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         iv1= (ImageView) findViewById(R.id.iv1);
         iv2= (ImageView) findViewById(R.id.iv2);
         iv3= (ImageView) findViewById(R.id.iv3);
