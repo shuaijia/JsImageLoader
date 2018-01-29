@@ -1,14 +1,10 @@
 package com.jia.sample;
 
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.jia.jsloader.JsLoader;
-import com.jia.jsloader.async.AsyncHandler;
-import com.jia.jsloader.async.AsyncUrlConnection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView iv2;
     private ImageView iv3;
     private ImageView iv4;
+    private ImageView iv5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         iv2= (ImageView) findViewById(R.id.iv2);
         iv3= (ImageView) findViewById(R.id.iv3);
         iv4= (ImageView) findViewById(R.id.iv4);
+        iv5= (ImageView) findViewById(R.id.iv5);
 
 
         JsLoader.with(this)
@@ -47,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 .defaultImg(R.mipmap.ic_launcher)
                 .into(iv4);
 
-
+        JsLoader.with(this)
+                .load("http://sportspic.oss-cn-shanghai.aliyuncs.com/151700832825868-0.jpg")
+                .defaultImg(R.mipmap.ic_launcher)
+                .into(iv5);
     }
 }
