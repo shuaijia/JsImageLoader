@@ -32,6 +32,7 @@ dependencies {
 ### 3、继承JsApplication
 
 ### 4、请求
+
 ```
 JsLoader.with(this)
     .load("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=699359866,1092793192&fm=27&gp=0.jpg")
