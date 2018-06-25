@@ -7,6 +7,7 @@
 ## 使用
  
 ### 1、添依赖
+
 ```
 allprojects {
   repositories {
