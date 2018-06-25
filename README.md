@@ -22,6 +22,7 @@ dependencies {
 ```
 
 ### 2、添权限
+
 ```
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
